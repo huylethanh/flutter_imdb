@@ -5,7 +5,7 @@ import 'package:flutter_imdb/Models/SearchResult.dart';
 import 'package:http/http.dart' as http;
 
 class ImdbService {
-  String _baseUrl = 'http://www.omdbapi.com/?apikey=633f1b90';
+  String _baseUrl = 'http://www.omdbapi.com/?apikey={key}';
 
   Future<List<SearchResult>> searchByName(String textSearch) async {
     var url = '$_baseUrl&s=$textSearch';
