@@ -182,8 +182,11 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
       margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
       child: FittedBox(
         fit: BoxFit.fitWidth,
-        child: Image(
-          image: NetworkImage(details.poster),
+        child: Hero(
+          tag: 'hero ${widget.imdbID}',
+          child: Image(
+            image: NetworkImage(details.poster),
+          ),
         ),
       ),
     );
