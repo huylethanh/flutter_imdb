@@ -10,6 +10,11 @@ class SearchProvider extends ChangeNotifier {
   void search({String textSearch, int page = 1}) async {
     if (page == 1) {
       searches.clear();
+      canLoadMore = true;
+    }
+
+    if (!canLoadMore) {
+      return;
     }
 
     setLoading(true);
@@ -19,7 +24,7 @@ class SearchProvider extends ChangeNotifier {
 
     var result = await ImdbService().searchByName(textSearch, page);
     if (result.length == 0) {
-      setCanLoad(true);
+      setCanLoad(false);
       setLoading(false);
       return;
     }
